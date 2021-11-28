@@ -1,0 +1,55 @@
+<div class="bg p-4">
+    <h1 class="text-center header text-white">
+        <span class="text-success t">O</span>ffers Cart
+    </h1>
+
+    <div class="container totalDiv row" *ngFor="let offer of offers">
+        <div class="col col-lg-12 col-md-12 col-sm-12 row p-3 border m-3 cartItem bg-white">
+            <img src="{{offer.img}}" class="col-3  rounded p-0" alt="">
+            <div class="col-9 ">
+                <p>{{offer.destination}} </p>
+                <p>Dead Line: {{offer.start}}</p>
+                <p>{{offer.price | currency}}</p>
+                <br>
+
+                <div class="offset-lg-8 offset-md-6  ">
+                    <button class="btn btn-danger col p-2 me-2">
+                        Remove Course
+                    </button>
+                    <button class="btn btn-success col p-2">Buy now</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card col-6 totalDiv p-2">
+        <h5 class="card-header ">Added Travels:</h5>
+        <div class="card-body row text-center">
+            <h5 class="card-title col-12 text-warning">
+                Original Price: {{totalPrice | currency}}
+            </h5>
+            <ng-container *ngIf="totalPrice >= 1200;else second">
+                <p class="h2 text-danger">
+                    -20%
+                </p>
+                <h4 class="card-title col-12 text-success">
+                    Final Price: {{twentyPercent | currency}}
+                </h4>
+            </ng-container>
+            <ng-template #second>
+                <ng-container *ngIf="totalPrice >= 600">
+                    <p class="h2 text-danger">
+                        -10%
+                    </p>
+                    <h4 class="card-title col-12 text-success">
+                        Final Price: {{tenPercent | currency}}
+                    </h4>
+                </ng-container>
+            </ng-template>
+
+            <a href="#" (click)="checkout()" class="btn btn-primary col-8 col-lg-6 totalDiv">Checkout</a>
+        </div>
+    </div>
+</div>

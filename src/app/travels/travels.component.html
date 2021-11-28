@@ -1,1 +1,26 @@
-<p>travels works!</p>
+<h1 class="text-center m-4 header text-white">
+    <span class="text-success t">T</span>ravel Offers
+</h1>
+<div class="row mainDiv fw-bold center justify-content-center ">
+
+    <div class="col mb-4 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center offers mt-4 " *ngFor="let offer of offers; index as i">
+        <div class="card bg-" style="width: 18rem; height: 34rem;">
+            <img src="{{offer.img}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">{{offer.destination}}</h3>
+                <p class="card-text">{{offer.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Trip start: {{offer.start}}</li>
+                <li class="list-group-item">Trip Duration: {{offer.duration}}</li>
+                <li class="list-group-item">Price: {{offer.price | currency}}</li>
+            </ul>
+            <div class="card-body pb-0 text-center">
+                <a (click)="addToCart(i)" class="card-link link btn btn-dark">Add to Cart</a>
+                <a routerLink="/cart" class=" btn card-link btn-secondary text-white fw-bolder">Show Cart</a>
+
+            </div>
+        </div>
+    </div>
+
+</div>

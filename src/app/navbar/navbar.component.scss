@@ -3,6 +3,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    z-index: auto;
 }
 
 .navDiv {
@@ -19,11 +20,4 @@ body {
 .french {
     font-family: 'Estonia', cursive;
     font-size: 4em;
-}
-
-@media screen and (max-width:920px) {
-    .navDiv {
-        display: flex;
-        justify-content: center;
-    }
 }
